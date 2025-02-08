@@ -8,7 +8,7 @@
         $password = $_POST['pass'];
         
         $sql = "SELECT * FROM usuarios WHERE usuario = ? AND pass = ?";
-        $stmt = $conn->prepare($sql);
+        $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("ss", $user, $password);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -33,10 +33,10 @@
 <body>
     <form method="POST" action="">
         <label for="user">Usuario:</label>
-        <input type="text" name="user" required>
+        <input type="text" name="usuario" required>
         <br>
         <label for="password">Contraseña:</label>
-        <input type="password" name="password" required>
+        <input type="password" name="pass" required>
         <br>
         <button type="submit">Iniciar sesión</button>
     </form>
